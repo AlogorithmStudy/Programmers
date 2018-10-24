@@ -9,7 +9,7 @@
 *.sln
 *.pdb
 *.ilk
-.vs/
+/.vs/
 Debug/
 *.vcxproj
 *.vcxproj.filters
