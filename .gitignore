@@ -6,6 +6,14 @@
 *.lo
 *.o
 *.obj
+*.sln
+*.pdb
+*.ilk
+.vs/
+Debug/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
 
 # Precompiled Headers
 *.gch
