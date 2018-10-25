@@ -39,18 +39,26 @@ int solution(vector<vector<int>> jobs) {
 
 
 	int CurTime = 0;		//현재시간
-	int CPUTimeSum = 0;		//한 CPU가 작업한 시간
+	int CPUTimeSum = 0;		//한 CPU가 작업한 시간합
 
-	vector<CPU>::iterator iter;
-	for (iter = MyCPU.begin(); iter != MyCPU.end();) {
+	vector<CPU>::iterator iter = MyCPU.begin();
+	while (MyCPU.size() != 0) {
 		if ((*iter).Start <= CurTime) {		//누적합보다 작으면 사용 - 들어온 경우
 			CurTime += (*iter).Time;
 			CPUTimeSum += (CurTime - (*iter).Start);
 			MyCPU.erase(iter);
 			iter = MyCPU.begin();
 		}
-		else iter++;
+		else {
+			iter++;
+			if (iter == MyCPU.end()) {
+				CurTime += 1;
+				iter = MyCPU.begin();
+			}
+		}
+		
 	}
+
 
 	answer = CPUTimeSum / Count;
 	return answer;
